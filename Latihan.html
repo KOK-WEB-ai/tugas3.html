@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Aritmatika</title>
+</head>
+<body>
+    <h2>Aritmatika Sederhana</h2>
+    <form name="formAritmatika">
+        <table>
+            <tr>
+                <td>Bilangan 1</td>
+                <td><input type="number" name="bil1"></td>
+            </tr>
+            <tr>
+                <td>Bilangan 2</td>
+                <td><input type="number" name="bil2"></td>
+            </tr>
+            <tr>
+                <td>Operator</td>
+                <td>
+                    <select name="operator">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value=""></option>
+                        <option value="/">/</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="button" onclick="hitung()">Hitung</button>
+                    <button type="reset">Reset</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <p id="hasil"></p>
+
+    <script>
+        function hitung() {
+            let bil1 = parseFloat(document.formAritmatika.bil1.value);
+            let bil2 = parseFloat(document.formAritmatika.bil2.value);
+            let operator = document.formAritmatika.operator.value;
+            let hasil = 0;
+
+            if (operator === "+") {
+                hasil = bil1 + bil2;
+            } else if (operator === "-") {
+                hasil = bil1 - bil2;
+            } else if (operator === "*") {
+                hasil = bil1 * bil2;
+            } else if (operator === "/") {
+                if (bil2 !== 0) {
+                    hasil = bil1 / bil2;
+                } else {
+                    hasil = "Error: Tidak bisa dibagi nol";
+                }
+            }
+
+            document.getElementById("hasil").innerHTML = "Hasil: " + hasil;
+        }
+    </script>
+</body>
+</html>
